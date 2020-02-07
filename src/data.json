@@ -1,0 +1,60 @@
+[
+  {
+    "id": "demo_root_1",
+    "text": "Root 1",
+    "type": "folder",
+    "state": {
+      "disabled": false
+    },
+    "children": [
+      {
+        "id": "demo_child_11",
+        "text": "Child 1",
+        "type": "folder",
+        "state": {
+          "disabled": false
+        },
+        "children": [
+          {
+            "id": "demo_child_21",
+            "text": "One more1 deneme",
+            "type": "file"
+          },
+          {
+            "id": "demo_child_31",
+            "text": "Two more1 sfd",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "id": "demo_child_1",
+        "text": "Child 2",
+        "type": "folder",
+        "state": {
+          "disabled": false
+        },
+        "children": [
+          {
+            "id": "demo_child_2",
+            "text": "One more",
+            "type": "file"
+          },
+          {
+            "id": "demo_child_3",
+            "text": "Two more",
+            "type": "file"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "demo_root_2",
+    "text": "Root 2",
+    "type": "folder",
+    "state": {
+      "disabled": false
+    }
+  }
+]

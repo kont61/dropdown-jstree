@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="Müslüm ÖZTÜRK">
+  <meta name="generator" content="">
+  <title>DropDown JsTree Demo</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="jstree/themes/default/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1>JQuery Dropdown JsTree Plugin</h1>
+        <p class="lead text-muted">This is a jquery dropdrow treeview plugin with bootstrap 4.4.1 and jstree 3.3.8.It is easy to use and configuration. </p>
+        
+      </div>
+    </section>
+
+    <div class="row">
+      <div class="col-md-5">
+        <form>
+          <div class="form-group row">
+            <label for="jsTree1" class="col-sm-2 col-form-label">Sample1</label>
+            <div class="col-sm-10">
+              <div id="jsTree1"></div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="jsTree2" class="col-sm-2 col-form-label">Sample2</label>
+            <div class="col-sm-10">
+              <div id="jsTree2"></div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="jsTree3" class="col-sm-2 col-form-label">Sample3</label>
+            <div class="col-sm-10">
+              <div id="jsTree3"></div>
+            </div>
+          </div>
+
+
+        </form>
+      </div>
+      <div class="col-md-7">
+        <div>
+          Events
+        </div>
+        <div id="events" style="height: 350px; overflow: auto;">
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+  </div>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="dist/js/bootstrap.bundle.min.js"></script>
+  <script src="jstree/jstree.js"></script>
+  <script src="drop-down-jstree.js"></script>
+  <script>
+
+    $(document).ready(function () {
+
+      $("#jsTree1").dropDownTreeView({
+        autoClose: false,
+        selectedValue: "demo_child_21",
+        url: "/data.json",
+        dummyText: "Unvan Seçiniz!",
+        searchPlaceHolderText: "Ara...",
+        showRemoveButton: false,
+        onItemSelected: function (node) {
+          showMessage(node);
+        }
+      });
+
+      $("#jsTree2").dropDownTreeView({
+        autoClose: true,
+        selectedValue: "demo_child_2",
+        url: "/data.json",
+        dummyText: "Araba Seçiniz!",
+        searchPlaceHolderText: "Ara...",
+        showRemoveButton: true,
+        removeButtonText: "Araba seçimini iptal et.",
+        onItemSelected: function (node) {
+          showMessage(node);
+        }
+      });
+
+
+
+      $.getJSON("/data.json", function (data) {
+        $("#jsTree3").dropDownTreeView({
+          autoClose: true,
+          selectedValue: "",
+          data: data,
+          dummyText: "Unvan Seçiniz!",
+          searchPlaceHolderText: "Ara...",
+          onItemSelected: function (node) {
+            showMessage(node);
+          }
+        });
+      })
+    })
+
+    function showMessage(node) {
+      var message = "Selected Value= " + node.id + ",\tText= " + node.text + ",\tType= " + node.type;
+      $("#events").append("<div>" + message + "</div>");
+    }
+
+
+
+  </script>
+
+</body>
+
+</html>
